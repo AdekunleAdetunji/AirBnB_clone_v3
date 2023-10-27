@@ -33,7 +33,7 @@ class FileStorage:
                     new_dict[key] = value
             return new_dict
         return self.__objects
-    
+
     def get(self, cls, id):
         """returns a single item"""
         all_items = self.all(cls).values()
@@ -71,7 +71,7 @@ class FileStorage:
                 jo = json.load(f)
             for key in jo:
                 self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
-        except:
+        except Exception:
             pass
 
     def delete(self, obj=None):
