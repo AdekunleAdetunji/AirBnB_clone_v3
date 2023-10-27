@@ -14,13 +14,13 @@ from models.state import State
 from models.user import User
 
 
-@app_views.route("/status", strict_slashes=False)
+@app_views.route("/status", strict_slashes=False, methods=["GET"])
 def status():
     """return the status of the base route query"""
     return jsonify({"status": "OK"})
 
 
-@app_views.route("/stats", strict_slashes=False)
+@app_views.route("/stats", strict_slashes=False, methods=["GET"])
 def stat():
     """return a json response of all onject counts"""
     return jsonify(
