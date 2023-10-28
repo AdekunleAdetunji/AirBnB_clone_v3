@@ -7,9 +7,11 @@ from flask import Flask
 from flask import jsonify
 from flask import make_response
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
+cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 
 @app.teardown_appcontext
