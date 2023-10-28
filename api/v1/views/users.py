@@ -20,6 +20,7 @@ def get_users(user_id=None):
     else:
         abort(404)
 
+
 @app_views.route("/users/", methods=["GET"], strict_slashes=False)
 def users():
     """retrieve all users from the database"""
