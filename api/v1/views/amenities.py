@@ -61,7 +61,7 @@ def update_amenity(amenity_id):
     if not amenity:
         abort(404)
     elif not request.get_json():
-        make_response({"error": "Not a JSON"}, 400)
+        return make_response({"error": "Not a JSON"}, 400)
     else:
         body = request.get_json()
         for key, value in body.items():
