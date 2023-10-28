@@ -20,7 +20,7 @@ def get_reviews(place_id):
     if not place:
         abort(404)
     reviews = [review.to_dict() for review in place.reviews]
-    return jsonify(reviews)
+    return make_response(jsonify(reviews), 200)
 
 
 @app_views.route("/reviews/<review_id>", methods=["GET"],
@@ -30,7 +30,7 @@ def get_review(review_id):
     review = storage.get(Review, review_id)
     if not review:
         abort(404)
-    return jsonify(review.to_dict())
+    return make_response(jsonify(review.to_dict()), 200)
 
 
 @app_views.route("/reviews/<review_id>", methods=["DELETE"],
