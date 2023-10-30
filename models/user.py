@@ -34,5 +34,5 @@ class User(BaseModel, Base):
         if k == "password":
             # encode to convert to byte string
             byte_value = v.encode()
-            hashed_value = hashlib.md5(byte_value).hexdigest()
-        super().__setattr__(k, hashed_value)
+            v = hashlib.md5(byte_value).hexdigest()
+        super().__setattr__(k, v)
